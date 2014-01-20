@@ -10,12 +10,16 @@ getmonitor <- function(id, directory, summarize = FALSE) {
   ## the data should be printed to the console; the default is
   ## FALSE
   
-  idMod <- sprintf("%03d" , as.numeric(id))       
-  fileName <- sprintf("%s/%s.csv" , directory , idMod)  
-  myData <- read.csv(fileName)
-    
+  # 将id转为三位表示
+  
+  id_Mod <- sprintf("%03d" , as.numeric(id))       
+  file_Name <- sprintf("%s/%s.csv" , directory , id_Mod)  
+  my_Data <- read.csv(file_Name)
   if(summarize){
-    print(summary(myData))
+    print(summary(my_Data))
   }
-  return(myData)
+  
+  # 记得return
+  
+  return(my_Data)
 }
