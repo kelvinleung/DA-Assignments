@@ -15,7 +15,7 @@ death <- outcome2[, 11]
 # problem here:
 # sort the states by their median 30-day death rate and plot the boxplots in order of them
 state.median <- names(sort(tapply(outcome2[, 11], outcome2$State, median, na.rm=T)))
-state <- as.character(sort(factor(outcome2$State, levels=as.factor(state.median), order=T)))
+state <- sort(factor(outcome2$State, levels=as.factor(state.median), order=T))
 # store default par for later use
 opar <- par(no.readonly=T)
 # set the axis tick labels to be perpendicular to the axis
