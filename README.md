@@ -11,4 +11,4 @@ Jan 6th to Feb 3rd
 
 ### Part II
 
-![Plot II]({{ site.url }}/Week III/Plots/part2.png)
+![Plot II](https://github.com/kelvinleung/DA-Assignments/blob/master/Week%20III/Plots/part2.png?raw=true)
