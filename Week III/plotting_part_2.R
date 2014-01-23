@@ -1,3 +1,6 @@
+# Part 2
+# Plot the 30-day mortality rates for heart attack, heart failure, and pneumonia
+
 # no idea why colClasses should equal to "character"
 mydata <- read.csv("outcome-of-care-measures.csv", colClasses = "character")
 # store default par for later use
@@ -13,3 +16,5 @@ plim <- range(data.ha, data.hf, data.pn, na.rm=T)
 hist(data.ha, xlab="30-day Death Rate", xlim=plim, main="Heart Attact")
 hist(data.hf, xlab="30-day Death Rate", xlim=plim, main="Heart Failure")
 hist(data.pn, xlab="30-day Death Rate", xlim=plim, main="Pneumonia")
+
+# to be continued...

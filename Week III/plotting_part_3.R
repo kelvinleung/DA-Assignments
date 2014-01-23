@@ -11,13 +11,22 @@ s <- state.sub[state.sub$n >= 20, 2]
 outcome2 <- outcome[outcome$State %in% s, ]
 # basic boxplot
 death <- outcome2[, 11]
+state <- outcome2$State
 
 # problem here:
+# abandoned code
 # sort the states by their median 30-day death rate and plot the boxplots in order of them
-state.median <- names(sort(tapply(outcome2[, 11], outcome2$State, median, na.rm=T)))
-state <- sort(factor(outcome2$State, levels=as.factor(state.median), order=T))
+# state.median <- names(sort(tapply(outcome2[, 11], outcome2$State, median, na.rm=T)))
+# state <- sort(factor(outcome2$State, levels=as.factor(state.median), order=T))
+
+# from forum: https://class.coursera.org/compdata-004/forum/thread?thread_id=926
+# reorder state, return as ordered fator
+state.median <- reorder(state, death, median, na.rm=T)
 # store default par for later use
 opar <- par(no.readonly=T)
 # set the axis tick labels to be perpendicular to the axis
 par(las=2)
-boxplot(death ~ state, ylab = "30-day Death Rate", main="Heart Attack 30-day Death by State")
+# plot them all
+boxplot(death ~ state.median, main = "Heart Attack 30-day Death Rate by State", ylab = "30-day Death Rate")
+# reset par
+par(opar)
