@@ -1,3 +1,9 @@
+# Week II
+# Part II
+# Author: Kelvin
+# Version: optimized_1_0
+# Edit time: 2014/01/24
+
 complete <- function(directory, id = 1:332) {
   ## 'directory' is a character vector of length 1 indicating
   ## the location of the CSV files
@@ -13,28 +19,12 @@ complete <- function(directory, id = 1:332) {
   ## where 'id' is the monitor ID number and 'nobs' is the
   ## number of complete cases
   
-  # 初始化变量
-  
-  n <- length(id)
-  col_Id <- 1:n
-  col_Nobs <- 1:n
-  j <- 1
-  
-  for(i in id){
-    id_Mod <- sprintf("%03d" , as.numeric(i))
-    file_Name <- sprintf("%s/%s.csv" , directory , id_Mod)  
-    my_Data <- read.csv(file_Name)
-    n_Complete <- nrow(na.omit(my_Data))
-    
-    # 字段赋值
-    
-    col_Id[j] <- i
-    col_Nobs[j] <- n_Complete
-    j <- j+1
+  # Build a funtion for apply, return the number of complete cases
+  CountComplete <- function(id){
+    filename <- sprintf("%s/%03d.csv", directory, as.numeric(id))
+    data <- read.csv(filename)
+    return(nrow(na.omit(data)))
   }
-  
-  # 处理返回值
-  
-  my_Output <- as.data.frame(cbind("id"=col_Id,"nobs"=col_Nobs))
-  return(my_Output)
+  # Return the data frame
+  return(data.frame(id=id, nobs=sapply(id, CountComplete)))
 }
