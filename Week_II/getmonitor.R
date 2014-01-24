@@ -1,6 +1,10 @@
+# Week II
+# Part I
+# Author: Kelvin
+# Version: optimized_1_0
+# Edit time: 2014/01/24
+
 getmonitor <- function(id, directory, summarize = FALSE) {
-  ## Author: Kelvin
-  
   ## 'id' is a vector of length 1 indicating the monitor ID
   ## number. The user can specify 'id' as either an integer, a
   ## character, or a numeric.
@@ -13,14 +17,11 @@ getmonitor <- function(id, directory, summarize = FALSE) {
   ## FALSE
   
   # Turn id into 3-digit num, combine it with directory
-  # Abandoned code:
-  # id_Mod <- sprintf("%03d" , as.numeric(id))       
-  # file_Name <- sprintf("%s/%s.csv" , directory , id_Mod)  
   filename <- sprintf("%s/%03d.csv", directory, as.numeric(id))
-  my_Data <- read.csv(file_Name)
+  data <- read.csv(filename)
   if(summarize){
-    print(summary(my_Data))
+    print(summary(data))
   }
   # Return!!!
-  return(my_Data)
+  return(data)
 }
