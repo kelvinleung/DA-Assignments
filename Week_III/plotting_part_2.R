@@ -16,5 +16,7 @@ plim <- range(data.ha, data.hf, data.pn, na.rm=T)
 hist(data.ha, xlab="30-day Death Rate", xlim=plim, main="Heart Attact")
 hist(data.hf, xlab="30-day Death Rate", xlim=plim, main="Heart Failure")
 hist(data.pn, xlab="30-day Death Rate", xlim=plim, main="Pneumonia")
+# reset par
+par(opar)
 
 # to be continued...
