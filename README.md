@@ -9,6 +9,10 @@ Jan 6th to Feb 3rd
 
 ## Week III
 
+### Part I
+
+![Plot II](https://github.com/kelvinleung/DA-Assignments/blob/master/Week_III/Plots/plotting_part_1.png?raw=true)
+
 ### Part II
 
 ![Plot II](https://github.com/kelvinleung/DA-Assignments/blob/master/Week_III/Plots/plotting_part_2.png?raw=true)
