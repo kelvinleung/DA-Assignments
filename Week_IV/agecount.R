@@ -18,7 +18,7 @@ agecount <- function(age = NULL) {
   ## Extract ages of victims; ignore records where no age is given
   age.clean <- regexpr("[0-9]* years old", homicides)
   age.clean <- regmatches(homicides, age.clean)
-  age.clean <- tolower(gsub(" years old", "", age.clean))
+  age.clean <- gsub(" years old", "", age.clean)
   age.count <- as.data.frame(table(age.clean))
   ## Return integer containing count of homicides for that age
   ## If no age matches, return 0
